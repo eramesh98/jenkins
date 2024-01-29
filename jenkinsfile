@@ -1,0 +1,13 @@
+pipeline {
+    agent any
+    parameters {
+        string(name: 'directoryname', defaultValue: ' ', description: 'please provide directory name')
+    }
+    stages {
+        stage ('create directory') {
+            steps {
+                sh 'mkdir $directoryname'
+            }
+        }
+    }
+}
