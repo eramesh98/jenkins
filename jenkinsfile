@@ -1,12 +1,18 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'directoryname', defaultValue: ' ', description: 'please provide directory name')
+        string(name: 'name', defaultValue: ' ', description: 'please provide your name')
+        choice(name: 'hometown', choices: ['hyd', 'guntur', 'warangal'], description: 'select your hometown')
     }
     stages {
-        stage ('create directory') {
+        stage ('enter your name') {
             steps {
-                sh 'mkdir $directoryname'
+                sh 'echo ${name}'
+            }
+        }
+        stage ('my hometown is') {
+            steps {
+                sh 'echo ${hometown}'
             }
         }
     }
